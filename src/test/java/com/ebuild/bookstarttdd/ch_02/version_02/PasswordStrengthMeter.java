@@ -4,7 +4,9 @@ public class PasswordStrengthMeter {
 
 
     public PasswordStrength meter(String s) {
-        if( !meetContainingNumberCriteria(s) )
+        if ( s == null || s.isEmpty() )
+            return PasswordStrength.INVALID;
+        if ( !meetContainingNumberCriteria(s) )
             return PasswordStrength.NORMAL;
         if( s.length() < 8 )
             return PasswordStrength.NORMAL;
